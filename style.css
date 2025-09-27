@@ -50,7 +50,7 @@ header a:hover {
     background: color #3498d3; ;
     color: white;
     height: 85vh;
-    background-image: url(images/backgrand.png);
+    background-image: url(backgrand.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -88,3 +88,4 @@ header a:hover {
     line-height: 1.8em;
 
 }
+
