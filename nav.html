@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中药科普文章导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #6a9113 0%, #141517 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .card-excerpt {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .read-more {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .read-more:hover {
+            background: #2980b9;
+        }
+        
+        .featured-article {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: row;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+        
+        .featured-image {
+            flex: 0 0 40%;
+            min-height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .featured-content {
+            flex: 1;
+            padding: 30px;
+        }
+        
+        .featured-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .featured-excerpt {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+        
+        .category-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 1px solid #e1e4e8;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 1px solid #e1e4e8;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .featured-article {
+                flex-direction: column;
+            }
+            
+            .featured-image {
+                min-height: 200px;
+            }
+            
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>中药科普知识库</h1>
+            <p class="subtitle">探索中医药的奥秘，了解传统中药的功效与应用</p>
+        </header>
+        
+        <div class="categories">
+            <button class="category-btn active">全部文章</button>
+            <button class="category-btn">中药材</button>
+            <button class="category-btn">中药方剂</button>
+            <button class="category-btn">临床应用</button>
+            <button class="category-btn">中药鉴别</button>
+        </div>
+        
+        <div class="featured-article">
+            <div class="featured-image" style="background-image: url('images/huangcen1.png');"></div>
+            <div class="featured-content">
+                <h2 class="featured-title">黄芪与黄芩：亲兄弟还是陌路人？——教你分辨这两种"黄氏"中药</h2>
+                <p class="featured-excerpt">黄芩作为《本经》中品中药，具有清热燥湿、泻火解毒、止血安胎等功效。本文详细介绍了黄芩的基本信息、产地采收、性味归经、功效主治、炮制用法及药材性状，帮助读者全面了解这味常用中药。</p>
+                <a href="hucen-AI.html" class="read-more">阅读全文</a>
+            </div>
+        </div>
+        
+        <div class="articles-grid">
+            <div class="article-card">
+                <div class="card-image" style="background-image: url('#');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">人参的补气功效与现代研究</h3>
+                    <p class="card-excerpt">人参作为"百草之王"，具有大补元气、复脉固脱、补脾益肺、生津安神等功效。现代研究发现其含有人参皂苷等多种活性成分...</p>
+                    <a href="#" class="read-more">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <div class="card-image" style="background-image: url('#');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">枸杞的养生价值与食用方法</h3>
+                    <p class="card-excerpt">枸杞子性平味甘，归肝、肾经，具有滋补肝肾、益精明目的功效。现代研究表明枸杞富含多糖、胡萝卜素等多种营养成分...</p>
+                    <a href="#" class="read-more">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <div class="card-image" style="background-image: url('#');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">当归的调经活血作用解析</h3>
+                    <p class="card-excerpt">当归被誉为"血中圣药"，具有补血活血、调经止痛、润肠通便的功效。特别适用于血虚萎黄、眩晕心悸、月经不调等症...</p>
+                    <a href="#" class="read-more">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <div class="card-image" style="background-image: url('#');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">金银花的清热解毒功效</h3>
+                    <p class="card-excerpt">金银花性寒味甘，归肺、心、胃经，具有清热解毒、疏散风热的功效。现代药理研究表明其具有广谱抗菌、抗病毒作用...</p>
+                    <a href="#" class="read-more">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <div class="card-image" style="background-image: url('#');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">中药炮制工艺及其重要性</h3>
+                    <p class="card-excerpt">中药炮制是中药临床应用前的重要加工环节，通过炮制可以改变药性、增强疗效、降低毒性，确保用药安全有效...</p>
+                    <a href="#" class="read-more">阅读全文</a>
+                </div>
+            </div>
+            
+            <div class="article-card">
+                <div class="card-image" style="background-image: url('#');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">常见中药配伍禁忌解析</h3>
+                    <p class="card-excerpt">中药配伍有"十八反"、"十九畏"等禁忌，了解这些配伍禁忌对于安全用药至关重要。本文详细解析常见中药的配伍禁忌...</p>
+                    <a href="#" class="read-more">阅读全文</a>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>中药科普知识库 &copy; 2025 探索中医药文化，传承中华智慧</p>
+        </footer>
+    </div>
+
+    <script>
+        // 简单的分类筛选功能
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // 移除所有按钮的active类
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // 为当前点击的按钮添加active类
+                this.classList.add('active');
+                
+                // 这里可以添加实际的文章筛选逻辑
+                // 由于是静态示例，我们只是模拟效果
+                const category = this.textContent;
+                alert(`已筛选分类: ${category}`);
+            });
+        });
+    </script>
+</body>
+</html>

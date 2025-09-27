@@ -1,0 +1,89 @@
+*{
+    padding: 0; ;
+    margin: 0;
+}
+header {
+    background-color: #e1b12c;
+    height:80px;
+    width:100%;
+    position: relative;
+}
+h1 {
+    color: #ffffff;
+    position: absolute;
+    left: 120px;
+    top:0 ;
+    line-height: 80px;
+    background-image:url(images/logo.png);
+    background-repeat: no-repeat;
+    background-position:center ;
+    background-size: 240px auto;
+    width: 240px;
+    height: 80px;
+    text-indent: -9999px;
+}
+header ul{
+    position: absolute;
+    right: 5vw;
+    top:0;
+    line-height:80px;
+}
+h1{
+    position: absolute;
+    left: 120px;
+    top:0;
+    line-height: 80px;
+}
+header li {
+    padding: 20px;
+    display: inline;
+    margin: right 4vw;
+}
+header a {
+    color: #ffffff;
+    text-decoration:none;
+}
+header a:hover {
+    text-decoration:underline;
+}
+.news{
+    background: color #3498d3; ;
+    color: white;
+    height: 85vh;
+    background-image: url(images/backgrand.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.news h2{
+    font-size: 60px;
+    color: aqua;
+}
+.news p{
+    color: #00ff15;
+    font-size: 18px;
+    margin:25px 0;
+}
+.news a{
+    color: rgb(255, 0, 0);
+    text-decoration: none;
+    border: 1px solid #0000007d;
+    padding: 10px 20px;
+    border-radius:5px; 
+}
+.slogan{
+    background-color: #27ae60;
+    color: #ffffff;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items:center;
+    font-size: 20px;
+    line-height: 1.8em;
+}
