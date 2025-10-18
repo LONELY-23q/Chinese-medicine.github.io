@@ -1,45 +1,119 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中医交流论坛</title>
+    <title>彩虹英语词典 | Rainbow English Dictionary</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <div class="background-animation">
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        <div class="bubble bubble-3"></div>
+        <div class="bubble bubble-4"></div>
+    </div>
+
     <header>
-    <h1>中医见解交流论坛</h1>
-    <nav>
-    <ul>
-        <li><a href="nav.html">走进中药</a></li>
-        <li><a href="#">中医历史</a></li>
-        <li><a href="#">西医西药</a></li>
-        <li><a href="#">交流融合</a></li>
-    </ul>
-    </nav>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">📚</span>
+                    <span>彩虹英语词典</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-section="dictionary">🔍 查单词</a></li>
+                        <li><a href="#" class="nav-link" data-section="vocabulary">❤️ 生词本</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
 
-    <main>
-     <section class="news">
-    <h2>中医智慧，生生不息！</h2>
-    <p>一缕药香，穿越古今；一份匠心，守护安康。</p>
-    <p><a href="#">了解更多</a></p>
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="输入单词或词组..." id="searchInput">
+                <button class="search-btn" id="searchBtn">
+                    <span class="btn-icon">🔍</span>
+                    搜索
+                </button>
+            </div>
+        </div>
     </section>
 
-    <section class="slogan">
-    <p><strong> </strong></p>
+    <div class="container">
+        <div class="main-content">
+            <section class="word-section" id="wordSection">
+                <div class="welcome-card" id="welcomeCard">
+                    <div class="welcome-icon">🌈</div>
+                    <h2>欢迎使用彩虹英语词典</h2>
+                    <p>输入单词开始你的英语学习之旅吧！</p>
+                    <div class="feature-tags">
+                        <span class="tag">🔊 发音功能</span>
+                        <span class="tag">❤️ 生词收藏</span>
+                        <span class="tag">📝 例句学习</span>
+                    </div>
+                </div>
+                
+                <div class="word-card" id="wordContent" style="display: none;">
+                    <div class="word-header">
+                        <div class="word-info">
+                            <h1 class="word-title" id="wordTitle">Word</h1>
+                            <div class="word-phonetic" id="wordPhonetic">/wɜːrd/</div>
+                        </div>
+                        <div class="word-actions">
+                            <button class="btn btn-speak" id="pronounceBtn">
+                                <span class="btn-icon">🔊</span>
+                                发音
+                            </button>
+                            <button class="btn btn-save" id="saveWordBtn">
+                                <span class="btn-icon">❤️</span>
+                                加入生词本
+                            </button>
+                        </div>
+                    </div>
+                    <div class="word-meanings" id="wordMeanings">
+                        <!-- Meanings will be populated here -->
+                    </div>
+                </div>
 
-    <section>
-    <p><em>小小银针，通经活络；一碗汤药，祛病强身。</em></p>
+                <div class="error-card" id="errorCard" style="display: none;">
+                    <div class="error-icon">😕</div>
+                    <h2>未找到单词</h2>
+                    <p id="errorMessage">请检查拼写或尝试其他单词</p>
+                </div>
+            </section>
 
-    <section>
-    <p><a href="#">守护安康</a></p>
-    <blockquote cite="www.baidu.com">传承精华，守正创新。<br>中医瑰宝，民族骄傲</blockquote>
-    </section>
-    </main>
+            <aside class="sidebar">
+                <div class="vocab-card">
+                    <h2 class="sidebar-title">
+                        <span class="title-icon">❤️</span>
+                        我的生词本
+                    </h2>
+                    <div class="vocab-stats">
+                        <span id="vocabCount">0</span> 个单词
+                    </div>
+                    <ul class="vocab-list" id="vocabList">
+                        <!-- Saved words will appear here -->
+                    </ul>
+                    <div class="empty-vocab" id="emptyVocab">
+                        <div class="empty-icon">📝</div>
+                        <p>生词本空空如也</p>
+                        <p class="empty-hint">收藏的单词会出现在这里哦！</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
 
-    <footer>制作
+    <footer>
+        <div class="container">
+            <p>🌈 让英语学习变得有趣又轻松！</p>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
